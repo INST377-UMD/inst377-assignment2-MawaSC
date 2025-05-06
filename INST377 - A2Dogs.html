@@ -1,0 +1,267 @@
+<html>
+    <head>
+        <title>Assignment 2 - Dogs</title>
+        <script defer type = "text/javascript" src ="INST377 - A2Dogs.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            body {
+                background-color: #edcda4;
+            }
+
+            /* Top gray bar styling*/
+            #bar {
+                text-align: center;
+                color: white;
+                background-color: #7c7c7c;
+                padding: 5px;
+                clear: both;
+            }
+            
+            #main-nav {
+                background-color: rgb(241, 85, 85);
+                padding: 0;
+                text-align: center;
+            }
+            
+            #main-nav li:hover {
+                background-color: #762525;
+                color: white;
+            }
+
+            #main-nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+            
+            #main-nav ul ul {
+                display: none;
+                position: absolute;
+            }
+            
+            #main-nav ul li {
+                display: inline-block;
+                padding: 10px;
+            }
+
+            a.no-underline {
+                text-decoration: none;
+                color: inherit;
+            }
+            
+            /* All buttons */
+            #buttons {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+
+            /* CSS for Pink button */
+            .button-1 {
+            background-color: #EA4C89;
+            border-radius: 8px;
+            border-style: none;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            height: 40px;
+            line-height: 20px;
+            list-style: none;
+            margin: 0;
+            outline: none;
+            padding: 10px 16px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: color 100ms;
+            vertical-align: baseline;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            }
+
+            .button-1:hover,
+            .button-1:focus {
+            background-color: #F082AC;
+            }
+
+            #slider-carousel img{
+                display: block;
+                margin: 0 auto;
+            }
+
+            .flex-parent {
+            display: flex;
+            }
+
+            .jc-center {
+            justify-content: center;
+            }
+
+            .flex-parent a {
+                margin: 20px;
+            }
+
+            #dog-info {
+                display: none;
+                background-color: #fff;
+                padding: 15px;
+                border-radius: 10px;
+                border: 10px solid #cccccc00;
+                margin: 20px auto;
+                width: 80%;
+                margin-top: 20px;
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            #audio-box {
+                background-color: #2ea63e;
+                padding: 15px;
+                border-radius: 10px;
+                border: 2px solid #ccc;
+                margin: 20px auto;
+                width: 80%;
+            }
+
+            h1, h2, h3 {
+                text-align: center;
+            }
+
+            /* CSS */
+            .button-4 {
+                appearance: none;
+                background-color: #FAFBFC;
+                border: 1px solid rgba(27, 31, 35, 0.15);
+                border-radius: 6px;
+                box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+                box-sizing: border-box;
+                color: #24292E;
+                cursor: pointer;
+                display: inline-block;
+                font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 20px;
+                list-style: none;
+                padding: 6px 16px;
+                position: relative;
+                transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                vertical-align: middle;
+                white-space: nowrap;
+                word-wrap: break-word;
+                }
+
+            .button-4:hover {
+                background-color: #F3F4F6;
+                text-decoration: none;
+                transition-duration: 0.1s;
+                }
+
+            .button-4:disabled {
+                background-color: #FAFBFC;
+                border-color: rgba(27, 31, 35, 0.15);
+                color: #959DA5;
+                cursor: default;
+                }
+
+            .button-4:active {
+                background-color: #EDEFF2;
+                box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+                transition: none 0s;
+                }
+
+            .button-4:focus {
+                outline: 1px transparent;
+                }
+
+            .button-4:before {
+                display: none;
+                }
+
+            .button-4:-webkit-details-marker {
+                display: none;
+                }
+
+        </style>
+    </head>
+    <body>
+        <h1>Assignment 2 - Dogs</h1>
+         <!-- Navigation Section -->
+         <nav id="main-nav">
+            <ul>
+                <li><a href="INST377 - Assignment2.html" class="no-underline">Home</a></li>
+                <li><a href="INST377 - A2Stocks.html" class="no-underline">Stocks</a></li>
+                <li><a href="INST377 - A2Dogs.html"class="no-underline">Dogs</a></li>
+            </ul>
+        </nav>
+
+        <!-- Slider Carousel -->
+        <div id="slider-carousel" style="width:612px; height:612px" data-simple-slider>
+        </div>
+
+        <!-- SimpleSlider -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
+        <script>
+            document.addEventListener('dogs-loaded', () => {
+            simpleslider.getSlider({
+                container: document.getElementById('silder-carousel'),
+                delay: 3 //seconds between slides
+            });
+        });
+        </script>
+
+        <!-- Button -->
+        <div id="buttons">
+          
+        </div>
+
+        <!-- Main text Area -->
+    <div class="flex-parent jc-center">
+
+        <!-- Dog info display -->
+        <div id="dog-info">
+        </div>
+
+        <!-- Audio Command -->
+        <div id="audio-box">
+            <h1>
+                In this web page there are options to Navigate using Audio!
+            </h1>
+            <h3>Ensure your Mic is enabled to be able to use this feature</h3>
+            <ul>
+                <li>Load Dog Breed</li>
+                    <ul>
+                        <li> Say: <b>Load Dog Breed <i>Dog Breed Name</i></b></li>
+                    </ul>
+                <li>Navigate to a Different Page</li>
+                    <ul>
+                        <li> Say: <b>Navigate to <i>page</i></b></li>
+                    </ul>
+                <li>Change the Page Color</li>
+                    <ul>
+                        <li> Say: <b>Change the color to <i>color</i></b></li>
+                    </ul>
+                <li>Say Hello Back to you!</li>
+                    <ul>
+                        <li> Say: <b>Hello</b></li>
+                    </ul>
+            </ul>
+            <button id="listen-on" class="button-4" role="button">Listening On</button>
+            <button id="listen-off" class="button-4" role="button">Listening Off</button>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    </div>
+    </body>
+</html>

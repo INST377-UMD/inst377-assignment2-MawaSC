@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <title>Assignment 2 - Stocks</title>
+        <script defer type = "text/javascript" src ="INST377 - A2Stocks.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+             body {
+                background-color: #edcda4;
+            }
+            
+            #bar {
+                text-align: center;
+                color: white;
+                background-color: #7c7c7c;
+                padding: 5px;
+                clear: both;
+            }
+            
+            #main-nav {
+                background-color: rgb(241, 85, 85);
+                padding: 0;
+                text-align: center;
+            }
+            
+            #main-nav li:hover {
+                background-color: #762525;
+                color: white;
+            }
+
+            #main-nav ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+            }
+
+            #main-nav ul ul {
+                display: none;
+                position: absolute;
+            }
+            
+            #main-nav ul li {
+                display: inline-block;
+                padding: 10px;
+            }
+
+            a.no-underline {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                background-color: azure;
+            }
+
+            th, td {
+                padding: 8px;
+                text-align: center;
+            }
+
+
+            /* Button CSS */
+            .button-88 {
+            display: flex;
+            align-items: center;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 0.7em 1.4em 0.7em 1.1em;
+            color: white;
+            background: #ad5389;
+            background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+            border: none;
+            box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+            letter-spacing: 0.05em;
+            border-radius: 20em;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            }
+
+            .button-88:hover {
+            box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+            }
+
+            .button-88:active {
+            box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+            }
+  
+        </style>
+    </head>
+    <body>
+        <h1>Assignment 2 - Stocks</h1>
+
+        <!-- Navigation Section -->
+        <nav id="main-nav">
+            <ul>
+                <li><a href="INST377 - Assignment2.html" class="no-underline">Home</a></li>
+                <li><a href="INST377 - A2Stocks.html" class="no-underline">Stocks</a></li>
+                <li><a href="INST377 - A2Dogs.html"class="no-underline">Dogs</a></li>
+            </ul>
+        </nav>
+        <!-- Form for stocks -->
+        <h1>Let's chart some stocks!</h1>
+        <label for="stockName">Stock Name:</label>
+        <input type="text" name="stockName" id="stock-name" maxlength = "5" required>
+        <br>
+        <br>
+        <label for="time">Time:</label>
+        <select name="timeSelect" id="time-select">
+            <option value="30">30 Days</option>
+            <option value="60">60 Days</option>
+            <option value="90">90 Days</option>
+        </select>
+        <br>
+        <button class="button-88" role="button" onclick="getData()">Look up!</button>
+        <br>
+        <!-- Chart -->
+         <div>
+            <canvas id = "myChart" width="200" height="150"></canvas>
+         </div>
+         <br>
+
+         <!-- Stock Table -->
+         <table style="width:100%" border="1">
+            <thead>
+                <tr>
+                <th>Ticker</th>
+                <th>Comment Count</th>
+                <th>Sentiment</th>
+                </tr>
+            </thead>
+            <tbody id="table"></tbody>
+          </table>
+    </body>
+</html>
